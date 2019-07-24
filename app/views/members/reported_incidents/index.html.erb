@@ -1,0 +1,23 @@
+<h1>Reported Incidents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Review type</th>
+      <th>Incident date</th>
+      <th>Message</th>
+      <th>Reporting Manager</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reported_incidents.each do |reported_incident| %>
+      <tr>
+        <td><%= reported_incident.degree.humanize %></td>
+        <td><%= reported_incident.incident_date %></td>
+        <td><%= reported_incident.message %></td>
+        <td><%= reported_incident.reported_by.email %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
