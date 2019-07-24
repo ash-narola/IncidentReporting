@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
+  namespace :members do
+    get 'reported_incidents/index'
+  end
   namespace :managers do
     resources :incident_recordings, except: [:show]
   end
+  
   devise_for :managers
   devise_for :members
 
@@ -10,7 +14,7 @@ Rails.application.routes.draw do
   end
 
   authenticated :member do
-    # root 'secret#index', as: :authenticated_member_root
+    root 'members/reported_incidents#index', as: :authenticated_member_root
   end
 
   root 'home#index'
