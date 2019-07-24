@@ -1,4 +1,5 @@
 <%= content_for :title, 'Edit Reported Incidents' %>
+<%= content_for :incidents_class, 'active' %>
 
 <%= render 'form', managers_incident_recording: @managers_incident_recording, url: managers_incident_recording_path(@managers_incident_recording) %>
 
