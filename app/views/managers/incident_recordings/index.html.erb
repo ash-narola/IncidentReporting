@@ -1,0 +1,30 @@
+<h1>Managers Incident Recordings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Review type</th>
+      <th>Incident date</th>
+      <th>Message</th>
+      <th>Reported Member</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @managers_incident_recordings.each do |managers_incident_recording| %>
+      <tr>
+        <td><%= managers_incident_recording.degree.humanize %></td>
+        <td><%= managers_incident_recording.incident_date %></td>
+        <td><%= managers_incident_recording.message %></td>
+        <td><%= managers_incident_recording.user.email %></td>
+        <td><%= link_to 'Edit', edit_managers_incident_recording_path(managers_incident_recording) %></td>
+        <td><%= link_to 'Destroy', managers_incident_recording_path(managers_incident_recording), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Managers Incident Recording', new_managers_incident_recording_path %>
