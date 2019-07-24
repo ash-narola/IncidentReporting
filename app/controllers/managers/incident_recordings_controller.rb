@@ -65,6 +65,6 @@ class Managers::IncidentRecordingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def managers_incident_recording_params
-      params.require(:incident_recording).permit(:degree, :incident_date, :message, :reported_by_id, :user_id)
+      params.require(:incident_recording).permit(:degree, :incident_date, :message, :reported_by_id, :user_id, :show_to_member)
     end
 end
