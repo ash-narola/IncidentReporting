@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   mount RailsAdmin::Engine => '/super_admin', as: 'rails_admin'
   namespace :members do
     get 'reported_incidents/index'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
 
   devise_for :managers
   devise_for :members
+  devise_for :super_admins
 
   authenticated :manager do
     root 'managers/incident_recordings#index', as: :authenticated_manager_root
