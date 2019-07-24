@@ -5,4 +5,13 @@ class IncidentRecording < ApplicationRecord
   belongs_to :user
 
   validates :incident_date, :message, presence: true
+  validate :validate_incident_date
+
+  def validate_incident_date
+    begin
+      DateTime.parse(self.incident_date)
+    rescue
+      errors.add(:field, 'Invalid date')
+    end
+  end
 end
