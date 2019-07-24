@@ -8,21 +8,16 @@
   <div class="card-body table-full-width table-responsive">
     <table class="table table-hover table-striped">
       <thead>
-        <tr>
-          <th>Review type</th>
-          <th>Incident date</th>
-          <th>Message</th>
-          <th>Reporting Manager</th>
-        </tr>
+        <th>Email</th>
+        <th>Team</th>
+        <th>Number of incidents reported</th>
       </thead>
-
       <tbody>
-        <% @reported_incidents.each do |reported_incident| %>
+        <% @members.each do |member| %>
           <tr>
-            <td><%= reported_incident.degree.humanize %></td>
-            <td><%= reported_incident.incident_date %></td>
-            <td><%= reported_incident.message %></td>
-            <td><%= reported_incident.reported_by.email %></td>
+            <td><%= member.email %></td>
+            <td><%= member.team.name %></td>
+            <td><%= member.incidents_reported.size %></td>
           </tr>
         <% end %>
       </tbody>

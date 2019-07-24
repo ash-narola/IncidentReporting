@@ -10,7 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
+//= require jquery-ui.js
+//= require popper
+//= require bootstrap-sprockets
+//= require light-bootstrap-dashboard
+//= require bootstrap-datepicker
 //= require activestorage
-//= require turbolinks
-//= require_tree .
+// require turbolinks
+//= require toastr_rails
+//= require select2
+
+$(document).on('turbolinks:load', function() {
+  $("select").select2({width: '20%'});
+  $('.datepicker').datepicker();
+});
