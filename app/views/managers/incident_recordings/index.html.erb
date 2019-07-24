@@ -13,6 +13,7 @@
         <th>Incident date</th>
         <th>Reported Member</th>
         <th>Message</th>
+        <th>Visible to Member</th>
         <th>Actions</th>
         <th>Actions</th>
       </thead>
@@ -23,6 +24,7 @@
           <td><%= managers_incident_recording.incident_date %></td>
           <td><%= managers_incident_recording.message.truncate(25) %></td>
           <td><%= managers_incident_recording.user.email %></td>
+          <td><%= managers_incident_recording.show_to_member %></td>
           <td><%= link_to 'Edit', edit_managers_incident_recording_path(managers_incident_recording) %></td>
           <td><%= link_to 'Destroy', managers_incident_recording_path(managers_incident_recording), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
