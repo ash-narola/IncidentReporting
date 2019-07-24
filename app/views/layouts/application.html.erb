@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>EmployeeEvaluation</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Employee Evaluation</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <p id="notice"><%= notice %></p>
-    <% if member_signed_in? %>
-      <%= link_to 'Logout', destroy_manager_session_path, method: :delete %>
-    <% elsif manager_signed_in? %>
-      <%= link_to 'Logout', destroy_member_session_path, method: :delete %>
+<body>
+  <%= custom_bootstrap_flash %>
+  <div class="wrapper">
+    <% if manager_signed_in? %>
+      <%= render '/managers/sidebar' %>
+    <% elsif member_signed_in? %>
+      <%= render '/members/sidebar' %>
+    <% else %>
+      <%= render '/layouts/sidebar' %>
     <% end %>
-    <%= yield %>
-  </body>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#pablo">
+            <%= yield :title %>
+          </a>
+          <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar burger-lines"></span>
+            <span class="navbar-toggler-bar burger-lines"></span>
+            <span class="navbar-toggler-bar burger-lines"></span>
+          </button>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <%= render '/layouts/footer' %>
+    </div>
+  </div>
+</body>
 </html>

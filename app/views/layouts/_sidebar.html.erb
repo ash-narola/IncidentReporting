@@ -1,0 +1,23 @@
+<div class="sidebar" data-image="<%= image_url('sidebar-4.jpg') %>">
+  <div class="sidebar-wrapper">
+    <div class="logo">
+      <%= link_to root_path, class: 'simple-text' do %>
+        Employee Incident Reporting
+      <% end %>
+    </div>
+    <ul class="nav">
+      <li>
+        <%= link_to new_manager_session_path, class: 'nav-link' do %>
+          <i class="nc-icon nc-single-02"></i>
+          <p>Manager Sign In</p>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to new_member_session_path, class: 'nav-link' do %>
+          <i class="nc-icon nc-tap-01"></i>
+          <p>Member Sign In</p>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

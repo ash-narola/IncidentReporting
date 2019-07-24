@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   namespace :members do
     get 'reported_incidents/index'
   end
+
   namespace :managers do
     resources :incident_recordings, except: [:show]
+    resources :members, only: [:index]
   end
-  
+
   devise_for :managers
   devise_for :members
 

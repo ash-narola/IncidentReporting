@@ -1,0 +1,29 @@
+<div class="sidebar" data-image="<%= image_url('sidebar-4.jpg') %>">
+  <div class="sidebar-wrapper">
+    <div class="logo">      
+      <%= link_to root_path, class: 'simple-text' do %>
+        Employee Incident Reporting
+      <% end %>
+    </div>
+    <ul class="nav">
+      <li>
+        <%= link_to root_path, class: 'nav-link' do %>
+          <i class="nc-icon nc-chart-pie-36"></i>
+          <p>Incidents reported</p>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to managers_members_path, class: 'nav-link' do %>
+          <i class="nc-icon nc-circle-09"></i>
+          <p>All members</p>
+        <% end %>
+      </li>
+      <li class="nav-item active active-pro">
+        <%= link_to destroy_manager_session_path, method: :delete, class: 'nav-link active' do %>
+          <i class="nc-icon nc-button-power"></i>
+          <p>Log out</p>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
