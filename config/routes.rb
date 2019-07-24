@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/super_admin', as: 'rails_admin'
   namespace :members do
     get 'reported_incidents/index'
   end
